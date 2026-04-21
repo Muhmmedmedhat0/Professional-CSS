@@ -1,0 +1,83 @@
+/* 
+  CSS Cascade Layers - defined in order of increasing specificity.
+  Later layers override earlier layers when specificity is equal.
+  Order (lowest to highest specificity): base → reset → layout → components
+*/
+@layer base, reset, layout, components;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+  html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  figure,
+  blockquote,
+  dl,
+  dd {
+    margin: 0;
+  }
+
+  /* https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html */
+  [role='list'] {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    min-block-size: 100vh; /*similar to min-height: 100vh;*/
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  button,
+  input,
+  label {
+    line-height: 1.1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance; /* balance the title for long words */
+  }
+
+  p,
+  li {
+    text-wrap: pretty; /* balance the text for long words */
+  }
+
+  img,
+  picture {
+    max-inline-size: 100%; /* max-width: 100%; */
+    display: block;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+}
+
+@layer base {
+}
