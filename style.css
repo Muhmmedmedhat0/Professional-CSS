@@ -132,11 +132,13 @@
 
   /* a semantic "layer" of custom properties */
   :root {
+    /* text color */
     --text-main: var(--clr-gray-100);
     --text-high-contrast: var(--clr-white);
     --text-brand: var(--clr-brand-500);
     --text-brand-light: var(--clr-brand-400);
 
+    /* background */
     --background-accent-light: var(--clr-green-400);
     --background-accent-main: var(--clr-green-500);
     --background-accent-dark: var(--clr-green-600);
@@ -147,24 +149,32 @@
     --background-dark: var(--clr-brown-800);
     --background-extra-dark: var(--clr-brown-900);
 
+    /* font-size-heading */
     --font-size-heading-sm: var(--fs-700);
     --font-size-heading-regular: var(--fs-800);
     --font-size-heading-lg: var(--fs-900);
     --font-size-heading-xl: var(--fs-1000);
 
+    /* font-size for body and paragraph */
     --font-size-sm: var(--fs-300);
     --font-size-regular: var(--fs-400);
     --font-size-md: var(--fs-500);
     --font-size-lg: var(--fs-600);
 
+    /* border-radius */
     --border-radius-1: 0.25rem;
     --border-radius-2: 0.5rem;
     --border-radius-3: 0.75rem;
   }
-}
 
-body {
-  font-family: var(--ff-body);
-  font-size: var(--fs-400);
-  color: var(--clr-brown-700);
+  html {
+    font-family: var(--ff-body);
+    line-height: 1.6;
+  }
+
+  body {
+    font-size: var(--font-size-regular);
+    color: var(--text-main);
+    background-color: var(--background-main);
+  }
 }
