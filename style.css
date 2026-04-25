@@ -1,9 +1,9 @@
 /* 
   CSS Cascade Layers - defined in order of increasing specificity.
   Later layers override earlier layers when specificity is equal.
-  Order (lowest to highest specificity): base → reset → layout → components
+  Order (lowest to highest specificity): base → reset → utilities
 */
-@layer base, reset, layout, components;
+@layer base, reset, utilities;
 
 @layer reset {
   *,
@@ -194,5 +194,17 @@
   a:hover,
   a:focus-visible {
     color: var(--text-brand-light);
+  }
+}
+
+@layer utilities {
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
   }
 }
