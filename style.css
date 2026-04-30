@@ -1,9 +1,9 @@
 /* 
   CSS Cascade Layers - defined in order of increasing specificity.
   Later layers override earlier layers when specificity is equal.
-  Order (lowest to highest specificity): reset, base, layout, utilities
+  Order (lowest to highest specificity): reset, base, layout, components, utilities
 */
-@layer reset, base, layout, utilities;
+@layer reset, base, layout, components, utilities;
 
 @layer reset {
   *,
@@ -233,6 +233,25 @@
   }
 }
 
+@layer components {
+  .site-header {
+    padding-block: 1rem;
+  }
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .primary-navigation {
+    ul {
+      display: flex;
+      gap: 0.5rem 1rem;
+    }
+  }
+}
 @layer utilities {
   .visually-hidden {
     clip: rect(0 0 0 0);
