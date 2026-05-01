@@ -296,6 +296,68 @@
       color: var(--text-brand);
     }
   }
+
+  .card {
+    display: grid;
+    gap: var(--card-gap, 1rem);
+    padding: 1rem;
+    background-color: var(--background-light);
+    border-radius: var(--border-radius-3);
+
+    img {
+      border-radius: var(--border-radius-2);
+    }
+  }
+
+  .card__title {
+    color: var(--card-title-color, var(--text-brand));
+    font-size: var(--card-title-font-size, var(--font-size-heading-sm));
+  }
+
+  .button {
+    display: inline flex;
+    cursor: pointer;
+    font-family: var(--ff-heading);
+    font-weight: 700;
+    font-size: var(--font-size-md);
+    text-decoration: none;
+    background-color: var(--background-accent-main);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-1);
+    transition: all 0.3s ease;
+  }
+
+  .button:hover,
+  .button:focus-visible {
+    background: var(--background-accent-light);
+    color: var(--text-high-contrast);
+  }
+
+  .site-footer {
+    background-color: var(--background-dark);
+    padding-block: 2rem;
+    text-align: center;
+
+    /* either use .grid-flow and change the --grid-flow-spacing, or do this */
+    display: grid;
+    gap: 2rem;
+
+    a {
+      text-decoration: none;
+      color: var(--text-main);
+
+      &:hover,
+      &:focus-visible {
+        color: var(--text-brand-light);
+      }
+    }
+  }
+
+  .site-footer__title {
+    font-size: var(--font-size-md);
+    font-family: var(--ff-heading);
+    font-weight: 700;
+  }
 }
 
 @layer utilities {
