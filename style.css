@@ -277,6 +277,25 @@
       gap: 0.5rem 1rem;
     }
   }
+
+  .hero {
+    text-align: center;
+    background-image: url(/assets/hero.webp);
+    background-size: cover;
+    font-size: var(--font-size-md);
+    color: var(--text-high-contrast);
+    background-position: center;
+  }
+
+  .hero__title {
+    font-size: var(--font-size-heading-lg);
+
+    > span {
+      display: block;
+      font-size: var(--font-size-heading-xl);
+      color: var(--text-brand);
+    }
+  }
 }
 
 @layer utilities {
