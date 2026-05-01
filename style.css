@@ -202,6 +202,15 @@
 }
 
 @layer layout {
+  /* select all elements in the flow class except the first one */
+  .flow > * + * {
+    margin-block-start: var(--flow-space, 1em);
+  }
+
+  .grid-flow {
+    display: grid;
+    gap: var(--grid-gap, 1rem);
+  }
   .equal-columns {
     display: grid;
     gap: var(--equal-columns-gap, 1rem);
@@ -269,6 +278,7 @@
     }
   }
 }
+
 @layer utilities {
   .visually-hidden {
     clip: rect(0 0 0 0);
