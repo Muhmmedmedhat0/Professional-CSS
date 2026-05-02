@@ -234,7 +234,7 @@
     @media (min-width: 760px) {
       padding-block: 8rem;
 
-      &[data-padding='compact'] {
+      &.section--padding-compact {
         padding-block: 4.5rem;
       }
     }
@@ -271,10 +271,103 @@
     justify-content: space-between;
   }
 
+  [aria-controls='primary-nav'] {
+    z-index: 100;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+      border-radius: 0;
+    }
+
+    @media (width > 720px) {
+      display: none;
+    }
+  }
+
   .primary-navigation {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+    animation: nav-fade-in 0.65s ease-out 0.2s forwards;
+
     ul {
       display: flex;
       gap: 0.5rem 1rem;
+    }
+
+    a {
+      position: relative;
+      text-decoration: none;
+      color: var(--text-high-contrast);
+      font-weight: 500;
+      transition:
+        color 0.28s ease,
+        transform 0.28s ease;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      inset-inline: 0;
+      bottom: -0.25rem;
+      height: 2px;
+      background: var(--text-brand);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition:
+        transform 0.28s ease,
+        opacity 0.28s ease;
+      opacity: 0;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--text-brand-light);
+      transform: translateY(-0.1rem);
+    }
+
+    a:hover::after,
+    a:focus-visible::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+
+    @media (width < 720px) {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      right: 0;
+      background-color: var(--background-accent-main);
+      padding: 2rem;
+      font-size: var(--font-size-lg);
+      font-weight: 700;
+      font-family: var(--ff-heading);
+      border-radius: 0 0 0 var(--border-radius-3);
+      ul {
+        flex-direction: column;
+        gap: 0;
+      }
+      li:not(:first-child) {
+        border-top: 2px solid var(--background-accent-light);
+        margin-block-start: 1.5rem;
+        padding-block-start: 1.5rem;
+      }
+      [aria-expanded='true'] + & {
+        display: block;
+      }
+    }
+  }
+
+  @keyframes nav-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
