@@ -257,6 +257,16 @@
   .wrapper--wide {
     --wrapper-max-width: 1330px;
   }
+
+  .grid-auto-fit {
+    --auto-fit-min-col-size: 250px;
+    display: grid;
+    gap: var(--grid-gap, 1rem);
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(min(var(--auto-fit-min-col-size, 100%)), 1fr)
+    );
+  }
 }
 
 @layer components {
