@@ -206,6 +206,11 @@
   .flow > * + * {
     margin-block-start: var(--flow-space, 1em);
   }
+  .flex-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
 
   .grid-flow {
     display: grid;
@@ -472,13 +477,21 @@
     color: var(--text-high-contrast);
   }
 
+  select {
+    background-color: var(--background-accent-main);
+    color: var(--text-high-contrast);
+    padding: 0.25rem 0.5rem;
+    border: 0;
+    border-radius: var(--border-radius-1);
+  }
+
   .tag-list {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
 
     li {
-      background-color: var(--tag-bg, red);
+      background-color: var(--tag-bg, var(--clr-red-500));
       padding: 0.125rem 0.25rem;
       font-family: var(--ff-heading);
       font-size: var(--tag-font-size, var(--font-size-sm));
