@@ -420,8 +420,15 @@
     }
   }
 
+  .mashroom-guide {
+    --card-title-font-size: var(--font-size-heading-sm);
+    --card-title-color: var(--text-high-contrast);
+    --card-gap: 0.5rem;
+  }
+
   .card {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--card-gap, 1rem);
     padding: 1rem;
     background-color: var(--background-light);
@@ -437,8 +444,17 @@
     font-size: var(--card-title-font-size, var(--font-size-heading-sm));
   }
 
+  .card__note {
+    background-color: var(--background-extra-light);
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-size-sm);
+    border-radius: var(--border-radius-2);
+    color: var(--text-high-contrast);
+    margin-block-start: auto;
+  }
+
   .button {
-    display: inline flex;
+    display: inline-flex;
     cursor: pointer;
     font-family: var(--ff-heading);
     font-weight: 700;
@@ -454,6 +470,36 @@
   .button:focus-visible {
     background: var(--background-accent-light);
     color: var(--text-high-contrast);
+  }
+
+  .tag-list {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    li {
+      background-color: var(--tag-bg, red);
+      padding: 0.125rem 0.25rem;
+      font-family: var(--ff-heading);
+      font-size: var(--tag-font-size, var(--font-size-sm));
+      color: var(--tag-color, var(--text-high-contrast));
+      border-radius: var(--tag-border-radius, var(--border-radius-1));
+    }
+    [data-edible='edible'] {
+      --tag-bg: var(--background-accent-main);
+    }
+    [data-edible='toxic'] {
+      --tag-bg: var(--clr-red-500);
+    }
+    [data-season='summer'] {
+      --tag-bg: var(--clr-orange-500);
+    }
+    [data-season='spring'] {
+      --tag-bg: var(--clr-teal-500);
+    }
+    [data-season='fall'] {
+      --tag-bg: var(--clr-orange-500);
+    }
   }
 
   .site-footer {
