@@ -3,6 +3,7 @@ const cards = document.querySelectorAll(
 );
 const seasonalFilter = document.querySelector('#season-select');
 const typeFilter = document.querySelector('#type-select');
+const noResultsEl = document.querySelector('#no-results');
 
 const currentFilters = {
   season: 'all',
@@ -48,4 +49,10 @@ function filterCards() {
       card.hidden = true;
     }
   });
+
+  // show the "no results" message when nothing is visible
+  const anyVisible = Array.from(cards).some((c) => !c.hidden);
+  if (noResultsEl) {
+    noResultsEl.hidden = anyVisible;
+  }
 }
