@@ -1,3 +1,8 @@
+// If JS loads, disable the CSS-only `.no-js` fallback
+(function enableJavaScript() {
+  document.documentElement.classList.remove('no-js');
+})();
+
 const cards = document.querySelectorAll(
   '.mashroom-guide .card, .mushroom-guide .card',
 );
