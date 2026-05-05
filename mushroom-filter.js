@@ -20,15 +20,21 @@ function updateFilter(e) {
   const val = (e.target.value || '').trim().toLowerCase();
   if (filterType in currentFilters) {
     currentFilters[filterType] = val;
-    filterCards();
+    if (document.startViewTransition) {
+      document.startViewTransition(() => filterCards());
+    } else {
+      filterCards();
+    }
   }
 }
 
 if (seasonalFilter) seasonalFilter.addEventListener('change', updateFilter);
 if (typeFilter) typeFilter.addEventListener('change', updateFilter);
 
-// Apply initial filter state on load
-filterCards();
+// Set a unique view transition name for each card to enable individual transitions when filtering
+cards.forEach((card, index) => {
+  card.style.setProperty('view-transition-name', `mushroom-${index + 1}`);
+});
 
 function filterCards() {
   cards.forEach((card, index) => {
@@ -60,4 +66,10 @@ function filterCards() {
   if (noResultsEl) {
     noResultsEl.hidden = anyVisible;
   }
+}
+
+if (document.startViewTransition) {
+  document.startViewTransition(() => filterCards());
+} else {
+  filterCards();
 }
